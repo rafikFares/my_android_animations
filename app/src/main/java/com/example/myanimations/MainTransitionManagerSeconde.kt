@@ -1,11 +1,11 @@
 package com.example.myanimations
 
 import android.animation.ValueAnimator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.view.animation.LinearInterpolator
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import kotlinx.android.synthetic.main.transition_manager_frame2.*
@@ -26,23 +26,22 @@ class MainTransitionManagerSeconde : AppCompatActivity() {
             switch1.text = if (isChecked) "round_trip" else "one_way"
         }
 
+
         constraintSet1.clone(constraintLayout) //1
         constraintSet2.clone(this, R.layout.transition_manager_frame3) //2
-
-        departButton.setOnClickListener {
-            transitionOfKeyFrameScreen()
-            //rocketAnimation()
-        }
         /**
-         *
         1 This pulls the layout information from the initial layout into one of the constraint sets, constraintSet1.
         Since you added an ID to the ConstraintLayout earlier, you can refer to it directly from code now.
 
         2 This pulls the layout information from the final layout into constraintSet2.
         Since you are creating a ConstraintSet and you never actually inflate the second layout file,
         you avoid the overhead and performance hit of dealing with a second layout.
-
          */
+
+        departButton.setOnClickListener {
+            transitionOfKeyFrameScreen()
+            //rocketAnimation()
+        }
 
         /**
          *
@@ -56,25 +55,19 @@ class MainTransitionManagerSeconde : AppCompatActivity() {
          */
     }
 
-    override fun onEnterAnimationComplete() { //1
-        super.onEnterAnimationComplete()
 
-        constraintSet2.clone(this, R.layout.transition_manager_frame2) //2
+    fun transitionOfKeyFrameScreen() {
 
-        //apply the transition
+
         val transition = AutoTransition() //3
-        transition.duration = 1000 //4
+        transition.duration = 2000 //4
         TransitionManager.beginDelayedTransition(constraintLayout, transition) //5
+        val constraint = if (!isOffscreen) constraintSet1 else constraintSet2
+        isOffscreen = !isOffscreen
 
-        constraintSet2.applyTo(constraintLayout) //6
+        constraint.applyTo(constraintLayout) //6
 
         /**
-         *
-        1 Activities can’t draw anything while the view is animating.
-        onEnterAnimationComplete() is the point in the app life cycle
-        where the view animation has completed and it’s safe to call on drawing code.
-
-        2 This pulls the layout information from your final layout into constraintSet2.
 
         3 This creates a custom transition. In this case, you are using a built-in transition,
         AutoTransition(), which first fades out disappearing targets,
@@ -86,26 +79,6 @@ class MainTransitionManagerSeconde : AppCompatActivity() {
         but this time you also supply your custom transition.
 
         6 This applies the new ConstraintSet to the currently-displayed ConstraintLayout.
-
-         */
-    }
-
-    fun transitionOfKeyFrameScreen() {
-        //3
-        //apply the transition
-        TransitionManager.beginDelayedTransition(constraintLayout) //4
-        val constraint = if (!isOffscreen) constraintSet1 else constraintSet2
-        isOffscreen = !isOffscreen
-        constraint.applyTo(constraintLayout) //5
-
-        /**
-         *
-        3 This adds the animation in the listener for the button, for now,
-        so that you can trigger the animation whenever it’s toggled.
-
-        4 This calls Transition Manager’s beingDelayedTransition function.
-
-        5 This applies the new ConstraintSet to the currently displayed ConstraintLayout.
          */
     }
 
