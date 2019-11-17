@@ -1,0 +1,56 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:oneshot="true">
+
+    <!--
+
+    This animation runs for just three @drawable/frames. By setting the android:oneshot attribute of the list to true,
+    it will cycle just once then stop and hold on the last @drawable/frame. If it is set false then the animation will loop
+
+    -->
+
+    <item
+        android:drawable="@drawable/frame_00_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_01_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_02_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_03_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_04_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_05_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_06_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_07_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_08_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_09_delay004s"
+        android:duration="40" />
+
+    <item
+        android:drawable="@drawable/frame_10_delay004s"
+        android:duration="40" />
+</animation-list>
