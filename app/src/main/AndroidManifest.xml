@@ -19,6 +19,7 @@
         <activity android:name=".MainTransitionManagerSeconde" />
         <activity android:name=".MainAnimationDrawable" />
         <activity android:name=".MainAnimationVectorDrawable" />
+        <activity android:name=".MainAnimationObjectAnimator" />
     </application>
 
 </manifest>
