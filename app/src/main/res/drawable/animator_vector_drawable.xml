@@ -1,5 +1,12 @@
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:drawable="@drawable/vector_drawable">
+<!--
+    1 need to add android:drawable with the name of the vector drawable
+    to access it's content
+    2 for each target you need to specify the android:name of the path name
+    or the group name to access, and for each target accessed you need to specify
+    android:animation with the propertyName of the ObjectAnimator
+    -->
 
     <target
         android:name="rotationGroup"

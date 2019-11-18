@@ -12,6 +12,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/animator_vector_drawable"/>
+        android:id="@+id/imageView4"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
