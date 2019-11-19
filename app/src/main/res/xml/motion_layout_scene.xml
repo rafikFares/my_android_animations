@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!--
+    Transition is the same as transitionManager
+    -->
+
+    <Transition
+        motion:constraintSetEnd="@layout/motion_layout_frame2"
+        motion:constraintSetStart="@layout/motion_layout_frame1"
+        motion:duration="5000">
+
+        <!--
+        KeyFrame is like events actions during the transition
+        -->
+        <KeyFrameSet>
+            <!--
+            KeyAttribute to specify the value of an attribute which will change during the transition
+            KeyPosition is a point in the path where to modify something
+            CustomAttribute to change the value of a default attribute
+
+            motionTarget c'est la view visée
+            framePosition c'est la position de la view pendant la transition entre 0 et 100
+            keyPositionType j'en sais R
+            percentY and percentX to curve the transition
+            -->
+
+
+            <KeyPosition
+                motion:motionTarget="@id/rocketIcon"
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:percentY="-0.20"/>
+            <KeyPosition
+                motion:motionTarget="@id/galaxyIcon"
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:percentY="-0.20"/>
+
+        </KeyFrameSet>
+
+        <!--
+        OnSwipe and OnClick are the actions which will activate the transition
+        -->
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/rocketIcon"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+</MotionScene>
