@@ -40,7 +40,11 @@
 
         </activity>
 
-        <activity android:name=".MainMotionLayoutWithOverridedMotionLayout" >
+        <activity android:name=".MainOverridedMotionLayoutWithCoordinator" >
+
+        </activity>
+
+        <activity android:name=".MainOverridedMotionLayoutWithDrawer" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
