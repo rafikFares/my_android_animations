@@ -45,6 +45,10 @@
         </activity>
 
         <activity android:name=".MainOverridedMotionLayoutWithDrawer" >
+
+        </activity>
+
+        <activity android:name=".MainOverridedMotionLayoutWithViewPager" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
