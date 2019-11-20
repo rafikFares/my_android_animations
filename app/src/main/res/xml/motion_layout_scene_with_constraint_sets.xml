@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    Transition is the same as transitionManager
+    -->
+
+    <!--
+    by using constraintSet i don't have to make 2 xml files like the transition manager i need only to make only xml layout
+    and add the modification here in the constraintSet tags
+    -->
+
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@id/end"
+        motion:duration="5000">
+
+        <!--
+        KeyFrame is like events actions during the transition
+        -->
+        <KeyFrameSet>
+            <!--
+            KeyAttribute to specify the value of an attribute which will change during the transition
+            KeyPosition is a point in the path where to modify something
+            CustomAttribute to change the value of a default attribute in the attribute name i need to put
+            ex : in the view i have android:color="black" so here i need to put attributeName="color" and
+            add customColorValue
+
+            motionTarget c'est la view visée
+            framePosition c'est la position de la view pendant la transition entre 0 et 100
+            keyPositionType j'en sais R
+            percentY and percentX to curve the transition
+            saturation vient de la saturation de la couleur de l'image
+            -->
+
+            <KeyAttribute
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotation="-45"
+                motion:framePosition="50"
+                motion:motionTarget="@id/imageFilterViewEx" />
+
+
+        </KeyFrameSet>
+
+        <!--
+        OnSwipe and OnClick are the actions which will activate the transition
+        -->
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/imageFilterViewEx"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+
+    <!--
+    we don't need to change the image here because by using imageFilterView it will change
+    to the altSrc automaticly, here i need only to change the other things
+    -->
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageFilterViewEx"
+
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="saturation"
+                motion:customFloatValue="1" />
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="0" />
+
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageFilterViewEx"
+
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="saturation"
+                motion:customFloatValue="0" />
+            <CustomAttribute
+                motion:attributeName="crossfade"
+                motion:customFloatValue="1" />
+
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>

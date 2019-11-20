@@ -33,6 +33,10 @@
         </activity>
 
         <activity android:name=".MainMotionLayout" >
+
+        </activity>
+
+        <activity android:name=".MainMotionLayoutWithConstraintSet" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

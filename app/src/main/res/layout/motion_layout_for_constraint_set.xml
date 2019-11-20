@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:showPaths="true"
+    app:layoutDescription="@xml/motion_layout_scene_with_constraint_sets"
+    android:layout_height="match_parent">
+
+    <!--
+    the new ability in the ImageFilterView is the attribute app:altSrc
+    which will contain the next source image after the transition animation
+    - don't forget to add the attribute overlay to false or elsewhere it will
+    show both images in the same time (one over the other) !!
+    - don't really need to add the constraints bottom top ... to the view here
+    because there are already constraints in the constraintSet
+    -->
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageFilterViewEx"
+        android:src="@drawable/space_station_icon"
+        app:altSrc="@drawable/rover_icon"
+        app:overlay="false"
+        />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
